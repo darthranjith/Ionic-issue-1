@@ -2,20 +2,19 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { FirstService } from '../../providers/first-service';
+import { SecondService } from '../../providers/second-service';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers:[FirstService]
+  providers:[]
 })
 export class HomePage {
-
-  homeip:string;
-  homeport:string;
-  constructor(public navCtrl: NavController, public firstService:FirstService) {
-    this.homeip = firstService.ip;
-    this.homeport = firstService.port;
+homeip:string;
+homeport:string;
+  constructor(public navCtrl: NavController, secondSvc:SecondService) {
+    this.homeip = secondSvc.getSecondIP();
+    this.homeport = secondSvc.getSecondPORT();
   }
 
 }
